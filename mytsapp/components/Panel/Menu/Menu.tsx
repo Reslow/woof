@@ -1,7 +1,6 @@
 import React from "react";
 
 import EditPage from "./Layout/EditPage";
-import EditProfilePages from "./Layout/EditProfilePages";
 import EditProfileTopMenu from "./EditProfileTopMenu";
 import StartMenuButtons from "../StartMenuButtons";
 import EditTheme from "./Theme/EditTheme";
@@ -21,7 +20,6 @@ export default function Menu() {
       <div className="flex flex-col bg-gray-700 p-4 rounded h-1/3 justify-between">
         {/* <StartMenuButtons /> */}
         {/* <EditProfileTopMenu /> */}
-        {/* <EditProfilePages /> */}
         {/* <EditPage /> */}
         <EditTheme />
       </div>

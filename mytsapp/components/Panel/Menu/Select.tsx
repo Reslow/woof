@@ -7,12 +7,14 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-export default function Select({ items }) {
-  const [selected, setSelected] = useState(items[3]);
-
+export default function Select({ items, selected, setSelected }) {
   return (
-    <Listbox value={selected} onChange={setSelected}>
+    <Listbox
+      value={selected}
+      onChange={(e) => {
+        setSelected(e);
+      }}
+    >
       {({ open }) => (
         <>
           <Listbox.Label className="block text-sm font-medium text-gray-700">
@@ -37,16 +39,16 @@ export default function Select({ items }) {
               leaveTo="opacity-0"
             >
               <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {items.map((item) => (
+                {items.map((page: { name: string }, i) => (
                   <Listbox.Option
-                    key={item.id}
+                    key={i}
                     className={({ active }) =>
                       classNames(
                         active ? "text-white bg-indigo-600" : "text-gray-900",
                         "relative cursor-default select-none py-2 pl-3 pr-9"
                       )
                     }
-                    value={item}
+                    value={page}
                   >
                     {({ selected, active }) => (
                       <>
@@ -56,7 +58,7 @@ export default function Select({ items }) {
                             "block truncate"
                           )}
                         >
-                          {item.name}
+                          {page.name}
                         </span>
 
                         {selected ? (

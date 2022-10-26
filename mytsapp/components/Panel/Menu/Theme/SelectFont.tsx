@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Select from "../Select";
 
-export default function SelectFont() {
+export default function SelectFont({ setSelectedFont }) {
+  const [selected, setSelected] = useState<{ name: string }>({
+    name: "Arial (sans-serif)",
+  });
+  useEffect(() => {
+    setSelectedFont(selected);
+  }, [setSelected]);
   const fonts = [
-    { id: 1, name: "Arial (sans-serif)" },
-    { id: 2, name: "Verdana (sans-serif)" },
-    { id: 3, name: "Tahoma (sans-serif)" },
-    { id: 4, name: "Trebuchet MS (sans-serif)" },
-    { id: 5, name: "Times New Roman (serif)" },
-    { id: 6, name: "Georgia (serif)" },
-    { id: 7, name: "CarolGaramond (serif)" },
-    { id: 8, name: "Mason Heaney" },
-    { id: 9, name: "Claudie Smitham" },
-    { id: 10, name: "Emil Schaefer" },
+    { name: "Arial (sans-serif)" },
+    { name: "Verdana (sans-serif)" },
+    { name: "Tahoma (sans-serif)" },
+    { name: "Trebuchet MS (sans-serif)" },
+    { name: "Times New Roman (serif)" },
+    { name: "Georgia (serif)" },
+    { name: "CarolGaramond (serif)" },
+    { name: "Mason Heaney" },
+    { name: "Claudie Smitham" },
+    { name: "Emil Schaefer" },
   ];
   return (
     <>
       <h1>Select Font</h1>
-      <Select items={fonts} />
+      <Select items={fonts} selected={selected} setSelected={setSelected} />
     </>
   );
 }
