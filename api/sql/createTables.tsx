@@ -1,22 +1,22 @@
-const mysql = require("mysql2");
+const mysql_module = require("mysql");
 
 require("dotenv").config();
 
-const DB_HOST = process.env.DB_HOST;
-const DB_USER = process.env.DB_USER;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const DB_DATABASE = process.env.DB_DATABASE;
-const DB_PORT = process.env.DB_PORT;
+const DB_HOST_ = process.env.DB_HOST;
+const DB_USER_ = process.env.DB_USER;
+const DB_PASSWORD_ = process.env.DB_PASSWORD;
+const DB_DATABASE_ = process.env.DB_DATABASE;
+const DB_PORT_ = process.env.DB_PORT;
 
-const db = mysql.createConnection({
-  host: DB_HOST,
-  user: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_DATABASE,
-  port: DB_PORT,
+const db_ = mysql_module.createConnection({
+  host: DB_HOST_,
+  user: DB_USER_,
+  password: DB_PASSWORD_,
+  database: DB_DATABASE_,
+  port: DB_PORT_,
 });
 
-db.connect(async (err, connection) => {
+db_.connect(async (err, connection) => {
   console.log("RUNNING CREATE TABLE SCRIPT");
   let createUsersTable = `CREATE TABLE IF NOT EXISTS Users (
     userId int NOT NULL AUTO_INCREMENT,
@@ -26,6 +26,7 @@ db.connect(async (err, connection) => {
     PRIMARY KEY (userId)) 
     ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
     `;
+
   let createRolesTable = `CREATE TABLE IF NOT EXISTS Roles (
     roleId int NOT NULL AUTO_INCREMENT,
     rolename varchar(45) NOT NULL,
@@ -41,7 +42,7 @@ db.connect(async (err, connection) => {
     ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     `;
 
-  let createProfileTable = `CREATE TABLE IF NOT EXISTS Recipe (
+  let createProfileTable = `CREATE TABLE IF NOT EXISTS Profile (
       id int NOT NULL AUTO_INCREMENT,
       ProfilePage c_array JSON NOT NULL
       Theme c_array JSON NOT NULL
@@ -60,28 +61,29 @@ db.connect(async (err, connection) => {
         ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
         `;
 
-  db.query(createUsersTable, async (err) => {
+  db_.query(createUsersTable, async (err) => {
     if (err) {
-      console.log(err);
+      console.log(err, "createUsersTable");
       process.exit(1);
     }
     console.log("USER TABLE CREATED!");
-    db.query(createRolesTable, async (err) => {
+    db_.query(createRolesTable, async (err) => {
       if (err) {
         process.exit(1);
       }
       console.log("ROLES TABLE CREATED!");
-      db.query(createUsersWithRoleTable, async (err) => {
+      db_.query(createUsersWithRoleTable, async (err) => {
         if (err) {
+          console.log(err);
           process.exit(1);
         }
         console.log("USER WITH ROLES TABLE CREATED!");
-        db.query(createProfileTable, async (err) => {
+        db_.query(createProfileTable, async (err) => {
           if (err) {
             process.exit(1);
           }
-          console.log("RECIPE TABLE CREATED!");
-          db.query(createProfileeWithOwner, async (err) => {
+          console.log("ProfileTABLE CREATED!");
+          db_.query(createProfileeWithOwner, async (err) => {
             if (err) {
               console.log(err);
               process.exit(1);

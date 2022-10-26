@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql = require("mysql");
 require("dotenv").config();
 
 // explaining! => : pool conncection to database is good to reduce opening and closing connections between database operations
@@ -35,7 +35,8 @@ db.initRoles = () => {
 
 db.getUsers = () => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT * FROM Users";
+    const sql =
+      "SELECT * FROM Users u INNER JOIN UsersWithRoles uwr ON u.userId = uwr.userId INNER JOIN Roles r ON r.roleId = uwr.roleId";
     const query = mysql.format(sql);
     pool.query(query, (err, result) => {
       if (err) {
@@ -43,6 +44,48 @@ db.getUsers = () => {
       } else {
         return resolve(result);
       }
+    });
+  });
+};
+
+db.getRoleById = (roleId) => {
+  console.log("CHECK");
+
+  return new Promise((resolve, reject) => {
+    const sql = "SELECT roleId, rolename FROM Roles WHERE roleId = ?";
+    const query = mysql.format(sql, [roleId]);
+    pool.query(query, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(result[1]);
+    });
+    console.log("CHECK");
+  });
+};
+
+db.getRolesByUser = (userId) => {
+  return new Promise((resolve, reject) => {
+    const sql = "SELECT roleId, rolename FROM Roles WHERE userId = ?";
+    const query = mysql.format(sql, [userId]);
+    pool.query(query, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(result[0]);
+    });
+  });
+};
+
+db.setUserWithRole = (userId, roleId) => {
+  return new Promise((resolve, reject) => {
+    const sql = "INSERT INTO UsersWithRoles (userId,roleId) VALUES (?)";
+    const query = mysql.format(sql, [[userId, roleId]]);
+    pool.query(query, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(result[0]);
     });
   });
 };
@@ -61,8 +104,10 @@ db.getUserByEmail = (email) => {
 };
 
 db.getUserById = (userId) => {
+  console.log(userId);
   return new Promise((resolve, reject) => {
-    const sql = "SELECT userId, email, username FROM Users WHERE userId = ?";
+    const sql =
+      "SELECT userId, email,roleId, username FROM Users WHERE userId = ?";
     const query = mysql.format(sql, [userId]);
     pool.query(query, (err, result) => {
       if (err) {
@@ -76,7 +121,7 @@ db.getUserById = (userId) => {
 db.createUser = (username, email, password) => {
   return new Promise((resolve, reject) => {
     const sql =
-      "INSERT INTO Users (userId, username, email, password) VALUES (?)";
+      "INSERT INTO Users (userId,  username, email, password) VALUES (?)";
     const query = mysql.format(sql, [[null, username, email, password]]);
     pool.query(query, async (err, result) => {
       if (err) {

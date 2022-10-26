@@ -9,7 +9,6 @@ export default function index() {
         <title>Project NoName</title>
         <meta name="description" content="NoName" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
       </Head>
       <Home />
     </div>

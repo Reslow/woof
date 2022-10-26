@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "createDb": "node ./sql/createDb.js",
-    "createTables": "node ./sql/createTables.js"
+    "createDb": "node ./sql/createDb.tsx",
+    "createTables": "node ./sql/createTables.tsx"
   },
   "keywords": [],
   "author": "",

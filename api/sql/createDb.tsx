@@ -16,14 +16,16 @@ const db = mysql.createConnection({
 
 db.connect(async (err, connection) => {
   if (err) {
+    console.log(err.message);
     process.exit(1);
   }
-  console.log("Connected!!");
+  console.log("connect");
+
   db.query(
     `CREATE DATABASE IF NOT EXISTS ${DB_DATABASE}`,
     async (err, result) => {
       if (err) {
-        console.log("ERROR");
+        console.log(err.message);
         process.exit(1);
       }
       console.log("Database created");
