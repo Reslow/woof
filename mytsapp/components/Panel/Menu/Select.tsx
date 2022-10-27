@@ -12,7 +12,9 @@ export default function Select({ items, selected, setSelected }) {
     <Listbox
       value={selected}
       onChange={(e) => {
-        setSelected(e);
+        if (e.name !== null) {
+          setSelected(e);
+        }
       }}
     >
       {({ open }) => (

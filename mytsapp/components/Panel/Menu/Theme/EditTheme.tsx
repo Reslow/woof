@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import TextColor from "./TextColor";
 import BackgroundColor from "./BackgroundColor";
 import SelectFont from "./SelectFont";
 export default function EditTheme() {
+  const [theme, setTheme] = useState({});
   const [selectedFont, setSelectedFont] = useState<{
     name: string;
   }>();
@@ -13,6 +13,15 @@ export default function EditTheme() {
   const [bgColor, setBgColor] = useState<{
     color: string;
   }>();
+
+  useEffect(() => {
+    const theme = {
+      textColor: textColor,
+      bgColor: bgColor,
+      font: selectedFont,
+    };
+    setTheme(theme);
+  }, [bgColor, textColor, selectedFont]);
   return (
     <>
       <h1>Edit Theme</h1>

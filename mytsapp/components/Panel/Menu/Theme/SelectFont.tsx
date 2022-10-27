@@ -8,7 +8,7 @@ export default function SelectFont({ setSelectedFont }) {
   });
   useEffect(() => {
     setSelectedFont(selected);
-  }, [setSelected]);
+  }, [selected]);
   const fonts = [
     { name: "Arial (sans-serif)" },
     { name: "Verdana (sans-serif)" },

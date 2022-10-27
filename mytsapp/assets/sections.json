@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "name": "text",
+    "name": "Text",
     "title": "title",
     "text": "text"
   },
   {
     "id": 2,
-    "name": "image",
+    "name": "Image",
     "url": "url",
     "alt": "alt",
     "imageText": "imagetext"
   },
   {
     "id": 3,
-    "name": "image and text",
+    "name": "ImageAndText",
     "url": "url",
     "alt": "alt",
     "imageText": "imagetext",
@@ -24,7 +24,7 @@
   },
   {
     "id": 4,
-    "name": "double Image",
+    "name": "Double",
     "url": "url",
     "url_2": "url",
     "alt": "alt",

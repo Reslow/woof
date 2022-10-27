@@ -3,13 +3,15 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Select from "../Select";
 import sections from "../../../../assets/sections.json";
-import { Sections } from "../../../../types/sections";
+import { Sections, Section } from "../../../../types/sections";
+import InputForm from "./InputForm";
+import { ex1, ex2, ex3 } from "../../../../assets/ExampleSections";
 
 export default function EditPage() {
-  const pages: Array<{ name: string; id?: number }> = [
-    { name: "Home" },
-    { name: "Gallery" },
-    { name: "Ads" },
+  const pages: Array<{ name: string; id?: number; sectionList: Sections }> = [
+    { name: "Home", sectionList: ex1 },
+    { name: "Gallery", sectionList: ex3 },
+    { name: "Ads", sectionList: ex2 },
   ];
 
   const [profilePages, setProfilePages] = useState(pages);
@@ -20,12 +22,27 @@ export default function EditPage() {
   const [pageSections, setPageSections] = useState<Sections>([
     {
       id: 2,
-      name: "image",
+      name: "Image",
+      url: "url",
+      alt: "alt",
+      imageText: "imagetext",
+    },
+    {
+      id: 2,
+      name: "Image",
+      url: "url",
+      alt: "alt",
+      imageText: "imagetext",
+    },
+    {
+      id: 2,
+      name: "Image",
       url: "url",
       alt: "alt",
       imageText: "imagetext",
     },
   ]);
+  const [sectionData, setSectionData] = useState<Section>(null);
   const [editPage, setEditPage] = useState(null);
 
   function addOnClickHandler() {
@@ -36,10 +53,19 @@ export default function EditPage() {
       if (titleDoesNotExist.length > 0) {
         setErrorMsg("You need to se a unique title to page");
       } else {
-        setProfilePages((prev) => [...prev, { name: title }]);
+        setProfilePages((prev) => [
+          ...prev,
+          { name: title, sectionList: pageSections },
+        ]);
       }
     } else setErrorMsg("please add a title");
   }
+
+  useEffect(() => {
+    if (sectionData !== null) {
+      setPageSections((prev) => [...prev, sectionData]);
+    } else return;
+  }, [sectionData]);
 
   function deleteOnClickHandler(e) {
     const doesPageWithIdExistInList = profilePages.filter(
@@ -49,6 +75,7 @@ export default function EditPage() {
   }
 
   function deleteSectionHandler(e) {
+    console.log(pageSections);
     const doesPageWithIdExistInList = pageSections.filter(
       (page) => page.name !== e.target.value
     );
@@ -76,21 +103,14 @@ export default function EditPage() {
         required
       />
 
-      <button
-        type="button"
-        className="flex  mb-6 ml-auto mr-auto self-center justify-center rounded-md border border-transparent bg-indigo-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-        onClick={addOnClickHandler}
-      >
-        Add
-      </button>
       {errorMsg && errorMsg}
       <div>
         <h2>PAGES</h2>
         <ul>
           {profilePages.map((page, i) => {
             return (
-              <>
-                <li key={i}>
+              <div key={i}>
+                <li>
                   {page.name}
                   <button
                     className="px-3 mx-2 py2 bg-orange-400 rounded text-white"
@@ -131,13 +151,20 @@ export default function EditPage() {
                       </>
 
                       <ul>
-                        {pageSections.map((section) => {
+                        {pageSections.map((section, i) => {
+                          console.log(section);
                           return (
-                            <li>
-                              {section.name}
+                            <li key={i}>
+                              <div>
+                                <h1>{section ? section.name : "no name"}</h1>
+                                <InputForm
+                                  section={selected}
+                                  setSectionData={setSectionData}
+                                />
+                              </div>
                               <button
                                 className="px-1 mx-2  bg-red-600 rounded text-white"
-                                value={section.name}
+                                value={section ? section.name : "error"}
                                 onClick={deleteSectionHandler}
                               >
                                 x
@@ -149,7 +176,7 @@ export default function EditPage() {
                     </>
                   )}
                 </div>
-              </>
+              </div>
             );
           })}
         </ul>
