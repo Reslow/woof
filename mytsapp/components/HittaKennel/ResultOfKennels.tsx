@@ -4,29 +4,8 @@ import { Switch } from "@headlessui/react";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-const people = [
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
 
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-];
-
-export default function ResultOfKennels() {
+export default function ResultOfKennels({ listOfKennels }) {
   const [enabled, setEnabled] = useState(false);
 
   return (
@@ -76,58 +55,50 @@ export default function ResultOfKennels() {
                       scope="col"
                       className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                     >
-                      Name
+                      Kennel
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                     >
-                      Title
+                      Ort
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                     >
-                      Email
+                      Aktiv annons
                     </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    >
-                      Role
-                    </th>
+
                     <th
                       scope="col"
                       className="relative py-3.5 pl-3 pr-4 sm:pr-6"
                     >
-                      <span className="sr-only">Edit</span>
+                      <span className="sr-only">Profil</span>
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white">
-                  {people.map((person, personIdx) => (
+                  {listOfKennels.map((kennel, personIdx) => (
                     <tr
-                      key={person.email}
+                      key={personIdx}
                       className={personIdx % 2 === 0 ? undefined : "bg-gray-50"}
                     >
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        {person.name}
+                        {kennel.namn}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {person.title}
+                        {kennel.ort}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {person.email}
-                      </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {person.role}
+                        {kennel.aktiv}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <a
                           href="#"
                           className="text-indigo-600 hover:text-indigo-900"
                         >
-                          Profil<span className="sr-only">, {person.name}</span>
+                          Profil<span className="sr-only">, {kennel.namn}</span>
                         </a>
                       </td>
                     </tr>

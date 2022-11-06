@@ -1,10 +1,10 @@
-import React from "react";
-import GridWithCards from "../components/HittaKennel/GridWithCards";
-import ResultOfKennels from "../components/HittaKennel/ResultOfKennels";
+import React, { useEffect, useState } from "react";
+
+import HittaHundContainer from "../components/HittaKennel/HittaHundContainer";
 export default function HittaHund() {
   return (
     <>
-      <div className="bg-white">
+      <div className="container ">
         <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-lg font-semibold text-indigo-600">Pricing</h2>
@@ -18,21 +18,7 @@ export default function HittaHund() {
           </div>
         </div>
       </div>
-      <GridWithCards />
-      <button
-        type="button"
-        className="flex  ml-auto mr-auto self-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        Button text
-      </button>
-      <GridWithCards />
-      <button
-        type="button"
-        className="flex  ml-auto mr-auto self-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        sök
-      </button>
-      <ResultOfKennels />
+      <HittaHundContainer />
     </>
   );
 }

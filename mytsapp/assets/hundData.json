@@ -1,0 +1,656 @@
+[
+  {
+    "grupp": 1,
+    "namn": "vallhundar",
+    "bild": "/Images/iconfinder/6366319_border collie_breed_collie_dog_pedigree_icon.png",
+    "egenskap": "egenskap i grupp 1",
+    "antal": 4,
+    "raser": [
+      {
+        "namn": "Border collie",
+        "bild": "/Images/iconfinder/6366319_border collie_breed_collie_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Komondor",
+        "bild": "/Images/iconfinder/6366319_border collie_breed_collie_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Shetland sheepdog",
+        "bild": "/Images/iconfinder/6366319_border collie_breed_collie_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Collie, långhårig",
+        "bild": "/Images/iconfinder/6366319_border collie_breed_collie_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 2,
+    "namn": "pinscher, bergshund, sennenhund",
+    "bild": "/Images/iconfinder/6366333_animal_breed_canine_dog_pedigree_icon.png",
+    "egenskap": "egenskap i grupp 2",
+    "antal": 5,
+    "raser": [
+      {
+        "namn": "Boxer",
+        "bild": "/Images/iconfinder/6366333_animal_breed_canine_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "cane corso",
+        "bild": "/Images/iconfinder/6366333_animal_breed_canine_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Grand danois",
+        "bild": "/Images/iconfinder/6366333_animal_breed_canine_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Pinscher",
+        "bild": "/Images/iconfinder/6366333_animal_breed_canine_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Shar pei",
+        "bild": "/Images/iconfinder/6366333_animal_breed_canine_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 3,
+    "namn": "terrier",
+    "egenskap": "egenskap i grupp 3",
+    "bild": "/Images/iconfinder/6366318_breed_bull terrier_dog_pedigree_pet_icon.png",
+    "antal": 5,
+    "raser": [
+      {
+        "namn": "Australisk terrier",
+        "bild": "/Images/iconfinder/6366318_breed_bull terrier_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Skotsk terrier",
+        "bild": "/Images/iconfinder/6366318_breed_bull terrier_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Yorkshireterrier",
+        "bild": "/Images/iconfinder/6366318_breed_bull terrier_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Borderterrier",
+        "bild": "/Images/iconfinder/6366318_breed_bull terrier_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Bullterrier",
+        "bild": "/Images/iconfinder/6366318_breed_bull terrier_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 4,
+    "namn": "tax",
+    "egenskap": "egenskap i grupp 4",
+    "bild": "/Images/iconfinder/6366341_animal_breed_dachshund_dog_pedigree_icon.png",
+    "antal": 3,
+    "raser": [
+      {
+        "namn": "tax",
+        "bild": "/Images/iconfinder/6366341_animal_breed_dachshund_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 5,
+    "namn": "spets och urhund",
+    "egenskap": "egenskap i grupp 5",
+    "bild": "/Images/iconfinder/6366345_animal_basenji_breed_dog_pedigree_icon.png",
+    "antal": 4,
+    "raser": [
+      {
+        "namn": "Basenji",
+        "bild": "/Images/iconfinder/6366345_animal_basenji_breed_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Shiba",
+        "bild": "/Images/iconfinder/6366345_animal_basenji_breed_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Samojedhund",
+        "bild": "/Images/iconfinder/6366345_animal_basenji_breed_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Siberian husky",
+        "bild": "/Images/iconfinder/6366345_animal_basenji_breed_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 6,
+    "namn": "drivande,spår och sök",
+    "egenskap": "egenskap i grupp 6",
+    "bild": "/Images/iconfinder/6366337_animal_breed_dalmatian_dog_pedigree_icon.png",
+    "antal": 4,
+    "raser": [
+      {
+        "namn": "Beagle",
+        "bild": "/Images/iconfinder/6366337_animal_breed_dalmatian_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Dalmatiner",
+        "bild": "/Images/iconfinder/6366337_animal_breed_dalmatian_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Hamiltonstövare",
+        "bild": "/Images/iconfinder/6366337_animal_breed_dalmatian_dog_pedigree_icon.png",
+
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Drever",
+        "bild": "/Images/iconfinder/6366337_animal_breed_dalmatian_dog_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 7,
+    "namn": "stående fågel",
+    "egenskap": "egenskap i grupp 7",
+    "bild": "/Images/iconfinder/6366343_breed_dog_pedigree_pet_purebred_icon.png",
+    "antal": 3,
+    "raser": [
+      {
+        "namn": "Spinone",
+        "bild": "/Images/iconfinder/6366343_breed_dog_pedigree_pet_purebred_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Pointer",
+        "bild": "/Images/iconfinder/6366343_breed_dog_pedigree_pet_purebred_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Engelsk setter",
+        "bild": "/Images/iconfinder/6366343_breed_dog_pedigree_pet_purebred_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 8,
+    "namn": "apport & vattenhund",
+    "bild": "/Images/iconfinder/6366338_breed_canine_dog_golden_pedigree_icon.png",
+    "egenskap": "egenskap i grupp 8",
+    "antal": 3,
+    "raser": [
+      {
+        "namn": "Golden retriver",
+        "bild": "/Images/iconfinder/6366338_breed_canine_dog_golden_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Flatcoated retriever",
+        "bild": "/Images/iconfinder/6366338_breed_canine_dog_golden_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Labrador retriver",
+        "bild": "/Images/iconfinder/6366338_breed_canine_dog_golden_pedigree_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 9,
+    "namn": "sällskapshund",
+    "egenskap": "egenskap i grupp 9",
+    "bild": "/Images/iconfinder/6366328_breed_chihuahua_dog_long hair_pedigree_icon.png",
+    "antal": 3,
+    "raser": [
+      {
+        "namn": "papillon",
+        "bild": "/Images/iconfinder/6366328_breed_chihuahua_dog_long hair_pedigree_icon.png",
+
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Malteser",
+        "bild": "/Images/iconfinder/6366328_breed_chihuahua_dog_long hair_pedigree_icon.png",
+
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Shih tzu",
+        "bild": "/Images/iconfinder/6366328_breed_chihuahua_dog_long hair_pedigree_icon.png",
+
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "grupp": 10,
+    "namn": "vinthundar",
+    "egenskap": "egenskap i grupp 10",
+    "bild": "/Images/iconfinder/6366332_animal_breed_dog_pedigree_pet_icon.png",
+    "antal": 3,
+    "raser": [
+      {
+        "namn": "Borzoi",
+        "bild": "/Images/iconfinder/6366332_animal_breed_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Greyhound",
+        "bild": "/Images/iconfinder/6366332_animal_breed_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      },
+      {
+        "namn": "Saluki",
+        "bild": "/Images/iconfinder/6366332_animal_breed_dog_pedigree_pet_icon.png",
+        "kennlar": [
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          },
+          {
+            "namn": "kennelnamn",
+            "ort": "Malmö",
+            "aktiv": "ja"
+          }
+        ]
+      }
+    ]
+  }
+]
