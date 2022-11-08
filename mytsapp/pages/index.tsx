@@ -6,8 +6,8 @@ export default function index() {
   return (
     <div>
       <Head>
-        <title>Project NoName</title>
-        <meta name="description" content="NoName" />
+        <title>Woof</title>
+        <meta name="description" content="Hitta Kennel med Woofg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Home />
