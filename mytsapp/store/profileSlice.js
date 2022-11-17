@@ -3,20 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 const profileSlice = createSlice({
   name: "profile",
   initialState: {
-    presentation: undefined,
-    bg: undefined,
-    textColor: undefined,
-    font: undefined,
+    presentation: "",
+    bg: "",
+    textColor: "",
+    font: "",
   },
 
   reducers: {
     update(state, action) {
-      console.log(action.payload);
-      (state.presentation = action.payload.presentation),
-        (state.bg = action.payload.bg),
-        (state.textColor = action.payload.textColor),
-        (state.font = action.payload.font);
-
+      state.presentation = action.payload.text;
+      state.bg = action.payload.bgColor;
+      state.textColor = action.payload.textColor;
+      state.font = action.payload.font;
       state.userId = action.payload.userId;
     },
   },

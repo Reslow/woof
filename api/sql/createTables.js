@@ -36,24 +36,18 @@ db_.connect(async (err, connection) => {
           ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
           `;
 
-  let createUsersWithImages = `CREATE TABLE IF NOT EXISTS users_file (
-    userId int NOT NULL,
-    file_src VARCHAR(299),
-    PRIMARY KEY (userId))
-    ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-    `;
-  let createKennelBreadTable = `CREATE TABLE IF NOT EXISTS KennelBread (
-      breadId int NOT NULL AUTO_INCREMENT ,
+  let createKennelBreedTable = `CREATE TABLE IF NOT EXISTS KennelBreed (
+      breedId int NOT NULL AUTO_INCREMENT ,
       name varchar(45) NOT NULL, 
       url varchar(100) NOT NULL,  
       groupId int NOT NULL, 
-      PRIMARY KEY (breadId))
+      PRIMARY KEY (breedId))
       ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
       `;
   let createKennelUserTable = `CREATE TABLE IF NOT EXISTS KennelUser (
         kennelUserId Int NOT NULL AUTO_INCREMENT,
         groupId int NOT NULL,
-        breadname varchar(45) NOT NULL, 
+        breedname varchar(45) NOT NULL, 
         userId int NOT NULL ,
         username varchar(45) NOT NULL, 
         location varchar(45) NOT NULL,
@@ -64,7 +58,7 @@ db_.connect(async (err, connection) => {
   let createKennelTable = `CREATE TABLE IF NOT EXISTS Kennel (
             kennelId int NOT NULL,
             groupId int NOT NULL,
-            breadId int NOT NULL, 
+            breedId int NOT NULL, 
             userId int NOT NULL ,
             PRIMARY KEY (kennelId))
             ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
@@ -84,12 +78,14 @@ db_.connect(async (err, connection) => {
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     `;
 
-  let createThemeTable = `CREATE TABLE IF NOT EXISTS Theme (
-    themeId int NOT NULL AUTO_INCREMENT,
+  let createProfileTable = `CREATE TABLE IF NOT EXISTS Profile (
+    userId int NOT NULL,
     bgColor varchar(45) NOT NULL,
     textColor varchar(45) NOT NULL,
     font varchar(45) NOT NULL,
-    PRIMARY KEY (themeId) 
+    title varchar(45) NOT NULL,
+    text varchar(500) NOT NULL,
+    PRIMARY KEY (userId) 
     )  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     `;
 
@@ -125,16 +121,6 @@ db_.connect(async (err, connection) => {
     });
 
     await new Promise((resolve, reject) => {
-      db_.query(createThemeTable, async (err) => {
-        if (err) {
-          return reject(err);
-        } else {
-          resolve("CREATE THEME TABLE");
-        }
-      });
-    });
-
-    await new Promise((resolve, reject) => {
       db_.query(createKennelTable, async (err) => {
         if (err) {
           return reject(err);
@@ -154,11 +140,11 @@ db_.connect(async (err, connection) => {
       });
     });
     await new Promise((resolve, reject) => {
-      db_.query(createKennelBreadTable, async (err) => {
+      db_.query(createKennelBreedTable, async (err) => {
         if (err) {
           return reject(err);
         } else {
-          resolve("CREATE kennelBread TABLE");
+          resolve("CREATE kennelBreed TABLE");
         }
       });
     });
@@ -167,16 +153,16 @@ db_.connect(async (err, connection) => {
         if (err) {
           return reject(err);
         } else {
-          resolve("CREATE kennelBread TABLE");
+          resolve("CREATE kennelBreed TABLE");
         }
       });
     });
     await new Promise((resolve, reject) => {
-      db_.query(createUsersWithImages, async (err) => {
+      db_.query(createProfileTable, async (err) => {
         if (err) {
           return reject(err);
         } else {
-          resolve("CREATE usersWithImages TABLE");
+          resolve("CREATE profile TABLE");
         }
       });
     });

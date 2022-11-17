@@ -2,8 +2,8 @@ import React from "react";
 import Admin from "./admin";
 export default function Layout({ adminData }) {
   const userList = adminData?.users;
-  const creator = userList?.filter((data) => data.rolename === "CREATER_USER");
-  const visitor = userList?.filter((data) => data.rolename === "VISITER_USER");
+  const creator = userList?.filter((data) => data.rolename === "CREATOR_USER");
+  const visitor = userList?.filter((data) => data.rolename === "VISITOR_USER");
 
   console.log(visitor);
   return (

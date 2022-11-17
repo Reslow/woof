@@ -1,25 +1,24 @@
 import EditTheme from "./creator/panel/menu/Theme/EditTheme";
 import { useState } from "react";
 import { update } from "../../store/profileSlice";
+import axios from "axios";
 export default function EditPage() {
   const [title, setTitle] = useState("");
   const [presentation, setPresentation] = useState("");
-  const [bg, setBg] = useState("");
-  const [textColor, setTextColor] = useState("");
-  const [font, setFont] = useState("");
   const [theme, setTheme] = useState({});
 
   function handleSubmit(e) {
+    console.log(theme);
     e.preventDefault();
     axios
       .post(
-        "http://localhost:3005/api/saveProfile",
+        "http://localhost:3005/api/updateprofile",
         {
           title: title,
           presentation: presentation,
           bg: theme.bgColor,
           textColor: theme.textColor,
-          font: theme.selectedFont,
+          font: theme.font.name,
         },
         {
           withCredentials: true,
@@ -35,7 +34,7 @@ export default function EditPage() {
 
   return (
     <>
-      <form className="space-y-6" action="#" onSubmit={(e) => handleSubmit(e)}>
+      <form className="space-y-6">
         <div>
           <label
             htmlFor="title"
@@ -80,6 +79,7 @@ export default function EditPage() {
           <button
             type="submit"
             className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={(e) => handleSubmit(e)}
           >
             klar
           </button>

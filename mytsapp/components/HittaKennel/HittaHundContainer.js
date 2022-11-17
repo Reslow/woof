@@ -11,42 +11,42 @@ export default function HittaHundContainer({
   const [selectedGroup, setSelectedGroup] = useState("");
   const [selectedBreed, setSelectedBreed] = useState("");
 
-  const [breads, setBreads] = useState([]);
+  const [breeds, setBreeds] = useState([]);
   const [listOfKennels, setListOfKennels] = useState([]);
   const [displayGroup, setDisplayGroup] = useState(false);
-  const [displayBread, setDisplayBread] = useState(false);
+  const [displayBreed, setDisplayBreed] = useState(false);
   const [displayResult, setDisplayResult] = useState(false);
 
   useEffect(() => {
     const breeds = breedList.filter((item) => item.groupId === selectedGroup);
-    setBreads(breeds);
+    setBreeds(breeds);
   }, [selectedGroup]);
 
   useEffect(() => {
     const kennelsThatMatches = kennelList.filter(
-      (item) => item.breadname === selectedBreed
+      (item) => item.breedname === selectedBreed
     );
     setListOfKennels(kennelsThatMatches);
     console.log("check", kennelsThatMatches);
   }, [selectedBreed]);
 
   useEffect(() => {
-    if (displayBread) {
+    if (displayBreed) {
       setDisplayGroup(false);
       setDisplayResult(false);
     }
-  }, [displayBread]);
+  }, [displayBreed]);
 
   useEffect(() => {
     if (displayGroup) {
-      setDisplayBread(false);
+      setDisplayBreed(false);
       setDisplayResult(false);
     }
   }, [displayGroup]);
 
   useEffect(() => {
     if (displayResult) {
-      setDisplayBread(false);
+      setDisplayBreed(false);
       setDisplayGroup(false);
     }
   }, [displayResult]);
@@ -60,12 +60,12 @@ export default function HittaHundContainer({
           <SelectGroup
             hundData={groupList}
             setSelectedGroup={setSelectedGroup}
-            setDisplay={setDisplayBread}
+            setDisplay={setDisplayBreed}
           />
         </div>
 
-        {breads[0] && (
-          <div style={{ visibility: displayBread ? "block" : "none" }}>
+        {breeds[0] && (
+          <div style={{ visibility: displayBreed ? "block" : "none" }}>
             <h2>välj Ras bland gruppen: {selectedGroup}</h2>
             <SelectBreed
               hundData={breedList}

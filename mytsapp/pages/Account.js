@@ -41,7 +41,7 @@ export default function Account() {
       <h2>{currentUser.role}</h2>
       <h2>{currentUser.email}</h2>
 
-      {currentUser.role === "CREATER_USER" && (
+      {currentUser.role === "CREATOR_USER" && (
         <>
           <h1>EDIT PROFILE</h1>
 

@@ -26,7 +26,7 @@ export default function LoginForm() {
       .then((res) => {
         dispatch(login(res.data));
         console.log(res.data);
-        if (res.data.role === "CREATER_USER") {
+        if (res.data.role === "CREATOR_USER") {
           router.push("/Account");
         } else if (res.data.role === "ADMIN_USER") {
           router.push("/Adminaccount");

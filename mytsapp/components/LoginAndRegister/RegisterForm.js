@@ -4,26 +4,27 @@ import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../store/authSlice";
+import { update } from "../../store/profileSlice";
 export default function RegisterForm({ identity }) {
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [bread, setBread] = useState(null);
+  const [breed, setBreed] = useState(null);
   const [location, setLocation] = useState(null);
-  const [passbread, setPassBread] = useState("");
+  const [passbreed, setPassBreed] = useState("");
   const [passLo, setPassLo] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     if (identity === "kennel") {
-      if (bread && location) {
-        setPassBread(bread);
+      if (breed && location) {
+        setPassBreed(breed);
         setPassLo(location);
       }
     } else return;
-  }, [bread]);
+  }, [breed]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ export default function RegisterForm({ identity }) {
           username: username,
           email: email,
           password: password,
-          option_breed: passbread,
+          option_breed: passbreed,
           option_location: passLo,
         },
         {
@@ -43,9 +44,10 @@ export default function RegisterForm({ identity }) {
         }
       )
       .then((res) => {
+        console.log(res);
         dispatch(register(res.data));
-        console.log(res.data.role);
-        if (res.data.role === "CREATER_USER") {
+        dispatch(update(res.data.profile));
+        if (res.data.role === "CREATOR_USER") {
           router.push("/Account");
         } else {
           router.push("/Hittakennel");
@@ -171,9 +173,9 @@ export default function RegisterForm({ identity }) {
               välj Hundras
             </label>
             <select
-              id="bread"
-              name="bread"
-              onChange={(e) => setBread(e.target.value)}
+              id="breed"
+              name="breed"
+              onChange={(e) => setBreed(e.target.value)}
               className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             >
               <option>Australisk terrier</option>

@@ -2,15 +2,27 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { logout } from "../../store/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 import EditPage from "../../components/minSida/EditPage";
-
 export default function kennel() {
   const router = useRouter();
   const { id } = router.query;
   const currentUser = useSelector((state) => state.login);
+  axios
+    .get(
+      "http://localhost:3005/api/getprofile",
+      { params: { id: id } },
+      {
+        withCredentials: true,
+        credentials: "include",
+      }
+    )
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 
   return (
     <>

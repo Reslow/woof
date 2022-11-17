@@ -20,8 +20,8 @@ db.initRoles = () => {
   const sql = "INSERT INTO Roles (roleId, rolename) VALUES ?";
   const query = mysql.format(sql, [
     [
-      [1000, "VISITER_USER"],
-      [2000, "CREATER_USER"],
+      [1000, "VISITOR_USER"],
+      [2000, "CREATOR_USER"],
       [3000, "ADMIN_USER"],
     ],
   ]);
@@ -48,25 +48,25 @@ db.initKennelGroups = () => {
   });
 };
 
-db.initKennelBreads = () => {
-  const sql = "INSERT INTO KennelBread (name, url, groupId) VALUES ?";
+db.initKennelBreeds = () => {
+  const sql = "INSERT INTO KennelBreed (name, url, groupId) VALUES ?";
   const query = mysql.format(sql, [hundRaser]);
 
   pool.query(query, (err) => {
     if (err) {
-      console.log("Error inserting Kennelbreads from json filer", err);
+      console.log("Error inserting Kennelbreeds from json filer", err);
     } else {
       console.log();
     }
   });
 };
 
-db.setKennelWithU = (breadname, groupId, userId, username, location) => {
+db.setKennelWithU = (breedname, groupId, userId, username, location) => {
   return new Promise((resolve, reject) => {
     const sql =
-      "INSERT INTO KennelUser (kennelUserId, breadname, groupId, userId, username, location) VALUES (?)";
+      "INSERT INTO KennelUser (kennelUserId, breedname, groupId, userId, username, location) VALUES (?)";
     const query = mysql.format(sql, [
-      [null, breadname, groupId, userId, username, location],
+      [null, breedname, groupId, userId, username, location],
     ]);
     pool.query(query, (err, result) => {
       if (err) {
@@ -105,9 +105,9 @@ db.getAllKennels = () => {
   });
 };
 
-db.getAllBreads = () => {
+db.getAllBreeds = () => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT * FROM KennelBread";
+    const sql = "SELECT * FROM KennelBreed";
     const query = mysql.format(sql);
     pool.query(query, (err, result) => {
       if (err) {
@@ -149,9 +149,9 @@ db.getUsers = () => {
 };
 
 // få tag på alla raser
-db.getbreads = () => {
+db.getbreeds = () => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT * FROM KennelBread";
+    const sql = "SELECT * FROM KennelBreed";
     const query = mysql.format(sql);
     pool.query(query, (err, result) => {
       if (err) {
@@ -164,9 +164,9 @@ db.getbreads = () => {
 };
 
 // få users genom id
-db.getBreadIdByName = (name) => {
+db.getBreedIdByName = (name) => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT breadId FROM KennelBread WHERE name = ?";
+    const sql = "SELECT breedId FROM KennelBreed WHERE name = ?";
     const query = mysql.format(sql, name);
     pool.query(query, (err, result) => {
       if (err) {
@@ -179,11 +179,11 @@ db.getBreadIdByName = (name) => {
 };
 
 // få users genom id
-db.getGroupIdByBreadId = (breadId) => {
-  console.log(breadId);
+db.getGroupIdByBreedId = (breedId) => {
+  console.log(breedId);
   return new Promise((resolve, reject) => {
-    const sql = "SELECT groupId FROM KennelBread WHERE breadId = ?";
-    const query = mysql.format(sql, breadId);
+    const sql = "SELECT groupId FROM KennelBreed WHERE breedId = ?";
+    const query = mysql.format(sql, breedId);
     pool.query(query, (err, result) => {
       if (err) {
         return reject(err);
@@ -266,7 +266,7 @@ db.getRoleById = (roleId) => {
 //updatera rollen
 db.updateUserRole = (userId, roleId) => {
   return new Promise((resolve, reject) => {
-    const sql = `UPDATE UsersWithRoles SET roleId = ${roleId} WHERE userId = ${userId}`;
+    const sql = `UPDATE UsersWithRoles SET roleId = roleId WHERE userId = userId`;
     const query = mysql.format(sql, userId, roleId);
     pool.query(query, (err, result) => {
       if (err) {
@@ -278,109 +278,51 @@ db.updateUserRole = (userId, roleId) => {
   });
 };
 
-//skapa en textSection
-
-db.setTextSection = (name, title, body, userId) => {
-  return new Promise((resolve, reject) => {
-    const sql =
-      "INSERT INTO textSection (name, title, body, userId) VALUES (?)";
-    const query = mysql.format(sql, name, title, body, userId);
-    pool.query(query, (err, result) => {
-      if (err) {
-        console.log("error!");
-        return reject(err);
-      }
-      return resolve(result.insertId);
-    });
-  });
-};
-// set en text MED BILD Section
-
-db.setTextAndImageSection = (
-  name,
-  title,
-  body,
-  userId,
-  url,
-  alt,
-  align,
-  imageText
-) => {
-  return new Promise((resolve, reject) => {
-    const sql =
-      "INSERT INTO textWithImageSection (name, title, body, userId, url, alt, align,imageText) VALUES (?)";
-    const query = mysql.format(
-      sql,
-      name,
-      title,
-      body,
-      userId,
-      url,
-      alt,
-      align,
-      imageText
-    );
-    pool.query(query, (err, result) => {
-      if (err) {
-        console.log("error!");
-        return reject(err);
-      }
-      return resolve(result.insertId);
-    });
-  });
-};
-
-// set samling av sektioner
-db.setSections = (sectionsId, userId) => {
-  return new Promise((resolve, reject) => {
-    const sql = "INSERT INTO sections (sectionsId, userId) VALUES (?)";
-    const query = mysql.format(sql, sectionsId, userId);
-    pool.query(query, (err, result) => {
-      if (err) {
-        console.log("error!");
-        return reject(err);
-      }
-      return resolve(result.insertId);
-    });
-  });
-};
-
 // Skapa /koppla thema
-db.setTheme = (userId, bgColor, textColor, font) => {
+db.setProfile = (userId, bgColor, textColor, font, text, title) => {
   return new Promise((resolve, reject) => {
     const sql =
-      "INSERT INTO theme (userId, bgColor,textColor, font) VALUES (?)";
-    const query = mysql.format(sql, userId, bgColor, textColor, font);
+      "INSERT INTO Profile ( userId, bgColor,textColor, font, text, title) VALUES (?)";
+    const query = mysql.format(sql, [
+      [userId, bgColor, textColor, font, text, title],
+    ]);
     pool.query(query, (err, result) => {
       if (err) {
         console.log("error!");
         return reject(err);
       }
-      return resolve(result.insertId);
+      return resolve(result);
     });
   });
 };
-
-// skapa profil  med user, theme och sections
-db.setProfile = (userId, themeId, sectionsId) => {
-  return new Promise((resolve, reject) => {
-    const sql = "INSERT INTO Profile (userId, themeId, sectionsId) VALUES (?)";
-    const query = mysql.format(sql, userId, themeId, sectionsId);
-    pool.query(query, (err, result) => {
-      if (err) {
-        console.log("error!");
-        return reject(err);
-      }
-      return resolve(result.insertId);
-    });
-  });
-};
-
 // få profil genom id
 db.getProfileFromUserId = (userId) => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT themeId, sectionsId, FROM Profile WHERE userId = ?";
+    const sql =
+      "SELECT userId, bgColor,textColor, font, text, title FROM Profile WHERE userId = ?";
     const query = mysql.format(sql, userId);
+    pool.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  });
+};
+
+db.updateProfile = (font, userId, bgColor, textColor, text, title) => {
+  return new Promise((resolve, reject) => {
+    const sql =
+      "UPDATE Profile SET font=font, bgColor=bgColor, textColor=textColor, text=text, title=title WHERE userId = userId";
+    const query = mysql.format(sql, [
+      font,
+      userId,
+      bgColor,
+      textColor,
+      text,
+      title,
+    ]);
     pool.query(query, (err, result) => {
       if (err) {
         console.log("error!");

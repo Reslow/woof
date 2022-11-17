@@ -34,4 +34,5 @@ export default function EditTheme({ setTheme }) {
       <>Typsnitt: {selectedFont && selectedFont.name}</>
     </>
   );
+  ß;
 }

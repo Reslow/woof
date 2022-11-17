@@ -9,11 +9,10 @@ export default function HittaKennel() {
     async function getData() {
       try {
         const res = await fetch("http://localhost:3005/api/kennels", {
-          withCredntials: true,
+          withCredentials: true,
           credentials: "include",
         });
         const data = await res.json();
-        console.log(data);
         setKenneldb(data.kennel);
         setBreedsdb(data.breeds);
         setGroupdb(data.groups);
